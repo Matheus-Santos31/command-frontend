@@ -163,7 +163,7 @@
                 mat-raised-button
                 color="primary"
                 (click)="createOrder()"
-                [disabled]="prodsTotalQuantity > 0 ? 'true' : 'false'"
+                [disabled]="prodsTotalQuantity <= 0 ? 'true' : 'false'"
               >
                 Criar Pedido
               </button>
