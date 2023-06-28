@@ -1,0 +1,69 @@
+<main id="page-container">
+  <header class="row">
+    <div class="col-12 text-center text-uppercase">
+      <h1>Criação de Ingrediente</h1>
+    </div>
+  </header>
+
+  <section class="row d-lg-block">
+    <form
+      id="form"
+      class="col-12"
+      [formGroup]="formGroup"
+      (submit)="onSubmit($event)"
+    >
+      <div class="row">
+        <mat-form-field class="col-12">
+          <mat-label>Descrição</mat-label>
+
+          <input matInput formControlName="description" />
+        </mat-form-field>
+
+        <mat-form-field class="col-12">
+          <mat-label>Preço</mat-label>
+
+          <input matInput formControlName="price" />
+        </mat-form-field>
+
+        <div class="col-6">
+          <mat-slide-toggle formControlName="hasStock">
+            Tem estoque?
+          </mat-slide-toggle>
+        </div>
+
+        <mat-form-field class="col-6">
+          <mat-label>Quantidade</mat-label>
+
+          <input matInput formControlName="units" />
+        </mat-form-field>
+      </div>
+    </form>
+  </section>
+
+  <footer class="row flex-column-reverse flex-sm-row">
+    <div class="col-12 col-sm-6">
+      <button
+        class="w-100"
+        mat-stroked-button
+        color="primary"
+        type="button"
+        (click)="navigateToIngredientsListPage()"
+      >
+        Voltar
+      </button>
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <button
+        class="w-100"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        form="form"
+        [disabled]="isLoading"
+      >
+        Criar
+      </button>
+    </div>
+  </footer>
+</main>

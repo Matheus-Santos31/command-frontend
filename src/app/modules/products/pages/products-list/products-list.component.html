@@ -1,0 +1,73 @@
+<main id="page-container">
+  <header class="row">
+    <H1 class="col-12 text-center text-uppercase">Lista de Produtos</H1>
+  </header>
+  <div class="row justify-content-end mb-3">
+    <div class="col-12 col-sm-auto">
+      <button
+        mat-raised-button
+        color="primary"
+        class="w-100"
+        (click)="navigateToProductCreationPage()"
+      >
+        Novo Produto
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table
+        *ngIf="products.length"
+        mat-table
+        [dataSource]="products"
+        class="mat-elevation-z8 w-100"
+      >
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Nome</th>
+          <td mat-cell *matCellDef="let product">
+            {{ product.name }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="value">
+          <th mat-header-cell *matHeaderCellDef>Valor</th>
+          <td mat-cell *matCellDef="let product">
+            {{ product.value }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="hasStock">
+          <th mat-header-cell *matHeaderCellDef>Disponível</th>
+          <td mat-cell *matCellDef="let product">
+            {{ product.hasStock ? "Sim" : "Não" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="blocked">
+          <th mat-header-cell *matHeaderCellDef>Bloqueado</th>
+          <td mat-cell *matCellDef="let product">
+            {{ product.blocked ? "Sim" : "Não" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="custom">
+          <th mat-header-cell *matHeaderCellDef>Personalizado</th>
+          <td mat-cell *matCellDef="let product">
+            {{ product.custom ? "Sim" : "Não" }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef>Categoria</th>
+          <td mat-cell *matCellDef="let product">
+            {{ product.category.description }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</main>

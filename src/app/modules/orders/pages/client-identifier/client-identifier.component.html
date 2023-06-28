@@ -1,0 +1,54 @@
+<main id="page-container">
+  <div
+    class="container"
+    style="
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    "
+  >
+    <div class="row">
+      <div class="col-12">
+        <div
+          style="
+            height: 4em;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          "
+          class="d-flex text-center mt-2 mb-3 align-items-center justify-content-center"
+        >
+          <H1 class="mb-0" style="color: #673ab7">Bem vindo ao Si Senior!</H1>
+        </div>
+        <div
+          style="
+            height: 50vh;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          "
+          class="mb-2 col-12 d-flex justify-content-around align-items-center"
+        >
+          <button
+            mat-stroked-button
+            color="primary"
+            class="d-flex col-5 text-center justify-content-center align-items-center"
+            style="height: 30vh; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"
+            (click)="openDialog(true)"
+          >
+            <h2>Já sou Cliente!</h2>
+          </button>
+          <button
+            mat-stroked-button
+            color="primary"
+            class="d-flex col-5 text-center justify-content-center align-items-center"
+            style="height: 30vh; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)"
+            (click)="openDialog(false)"
+          >
+            <h2>Cliente Novo!</h2>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

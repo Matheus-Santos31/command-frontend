@@ -1,0 +1,56 @@
+<main id="page-container">
+  <header class="row">
+    <div class="col-12 text-center text-uppercase">
+      <h1>Informe seus dados</h1>
+    </div>
+  </header>
+
+  <section class="row d-lg-block">
+    <form
+      id="form"
+      class="col-12"
+      [formGroup]="clientFormGroup"
+      (submit)="onSubmit($event)"
+    >
+      <div class="row">
+        <mat-form-field class="col-12">
+          <mat-label>Nome</mat-label>
+
+          <input matInput formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field class="col-12">
+          <mat-label>CPF</mat-label>
+
+          <input matInput formControlName="document" />
+        </mat-form-field>
+      </div>
+    </form>
+  </section>
+
+  <footer class="row flex-column-reverse flex-sm-row">
+    <div class="col-12 col-sm-6">
+      <button
+        class="w-100"
+        mat-stroked-button
+        color="primary"
+        type="button"
+        (click)="closeDialog()"
+      >
+        Voltar
+      </button>
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <button
+        class="w-100"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        form="form"
+      >
+        Avançar
+      </button>
+    </div>
+  </footer>
+</main>

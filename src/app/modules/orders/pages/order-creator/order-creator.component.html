@@ -1,0 +1,176 @@
+<main id="page-container">
+  <div
+    class="container"
+    style="
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    "
+  >
+    <div class="row">
+      <div class="col-12">
+        <div
+          style="
+            height: 4em;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          "
+          class="d-flex text-center mt-2 mb-3 align-items-center justify-content-center"
+        >
+          <H1 class="mb-0" style="color: #673ab7">Faça seu pedido!</H1>
+        </div>
+        <div
+          style="
+            height: auto;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          "
+          class="mb-2 col-12 d-flex flex-column align-items-center"
+          *ngFor="
+            let productCategory of listProductsByCategory;
+            let productCategoryIndex = index
+          "
+        >
+          <div
+            style="
+              height: auto;
+              border: none;
+              border-radius: 5px 5px 0px 0px;
+              background-color: #673ab7;
+              color: white;
+            "
+            class="row w-100 d-flex flex-column align-items-center"
+          >
+            <h3 class="my-1">
+              {{ productCategory.productCategory.description }}
+            </h3>
+          </div>
+          <div
+            class="col-12 d-flex justify-content-around align-items-center"
+            style="
+              height: 2em;
+              border: 1px solid gray;
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+              font-weight: bold;
+            "
+          >
+            <div class="col-4 d-flex justify-content-center">
+              <span>Nome</span>
+            </div>
+            <div class="col-2 d-flex justify-content-center"></div>
+            <div class="col-4 d-flex justify-content-center">
+              <span>Valor</span>
+            </div>
+            <div class="col-2 d-flex justify-content-center">
+              <span>Quantidade</span>
+            </div>
+          </div>
+          <div
+            class="col-12 d-flex justify-content-around align-items-center"
+            style="
+              height: auto;
+              border: 0.5px solid gray;
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            "
+            *ngFor="
+              let product of productCategory.products;
+              let productIndex = index
+            "
+          >
+            <div
+              class="col-12 d-flex justify-content-around align-items-center"
+              style="
+                height: 4em;
+                border: 0.5px solid gray;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                font-weight: bold;
+              "
+            >
+              <div
+                class="col-4 d-flex justify-content-center align-items-center"
+              >
+                {{ product.name }}
+              </div>
+              <div
+                class="col-2 d-flex justify-content-center align-items-center"
+              ></div>
+              <div
+                class="col-4 d-flex justify-content-center align-items-center"
+              >
+                R${{ product.value }}
+              </div>
+              <div
+                class="col-2 d-flex justify-content-around align-items-center"
+              >
+                <button
+                  mat-mini-fab
+                  color="primary"
+                  (click)="
+                    handleQuantity(
+                      'decrement',
+                      productCategoryIndex,
+                      productIndex
+                    )
+                  "
+                >
+                  <mat-icon>remove</mat-icon>
+                </button>
+                {{ product.quantity }}
+                <button
+                  mat-mini-fab
+                  color="primary"
+                  (click)="
+                    handleQuantity(
+                      'increment',
+                      productCategoryIndex,
+                      productIndex
+                    )
+                  "
+                >
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              height: 0.5em;
+              border: none;
+              border-radius: 0px 0px 5px 5px;
+              background-color: #673ab7;
+              color: white;
+            "
+            class="row w-100"
+          ></div>
+        </div>
+        <footer
+          class="col-12 col-md-12 d-flex justify-content-end align-items-center my-2"
+        >
+          <div class="col-12 col-md-4 d-flex justify-content-around">
+            <div class="col-6 col-md-7 d-flex justify-content-end">
+              <button
+                mat-raised-button
+                color="warn"
+                (click)="navigateTo('orders/client-identifier')"
+              >
+                Cancelar
+              </button>
+            </div>
+            <div class="col-6 col-md-5 d-flex justify-content-end">
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="createOrder()"
+                [disabled]="prodsTotalQuantity > 0 ? 'true' : 'false'"
+              >
+                Criar Pedido
+              </button>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+</main>

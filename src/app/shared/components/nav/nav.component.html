@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <div class="row w-100">
+    <div class="col-2">
+      <span>Si senior</span>
+    </div>
+
+    <div class="col-10 d-flex justify-content-end">
+      <div class="d-flex justify-content-around" style="width: auto">
+        <div style="margin: 0 1rem 0 0">
+          <button mat-stroked-button (click)="navigateToListProduct()">
+            Produtos
+          </button>
+        </div>
+
+        <div style="margin: 0 1rem 0 0">
+          <button mat-stroked-button (click)="navigateToListIngredients()">
+            Ingredientes
+          </button>
+        </div>
+        <div style="margin: 0 1rem 0 0">
+          <button mat-stroked-button (click)="navigateToOrderCreateFluxe()">
+            Criação de Pedidos
+          </button>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end" style="width: auto">
+        <div>
+          <button mat-stroked-button (click)="navigateToListIngredients()">
+            Sair
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,7 @@
+#page-container {
+  padding: 2em;
+}
+
+#page-container footer {
+  row-gap: 1em;
+}
